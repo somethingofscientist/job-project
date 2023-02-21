@@ -1,3 +1,0 @@
-# job-project
-
-My PortFolio
