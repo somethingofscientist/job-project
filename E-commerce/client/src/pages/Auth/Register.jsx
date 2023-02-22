@@ -17,6 +17,7 @@ const Register = () => {
    const navigate = useNavigate();
 
    const handleSubmit = async (e) => {
+      e.preventDefault();
       try {
          const res = await axios.post(
             "/api/v1/auth/register",
