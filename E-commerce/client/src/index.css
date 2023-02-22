@@ -112,3 +112,17 @@ a.nav-link {
   padding: 10px 40px;
   /* border-radius: 0; */
 }
+
+.register{
+  display: flex;
+  height: 95vh;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  /* background-color: black; */
+  /* color: white; */
+}
+.form-group{
+  margin: 10px 0;
+}
