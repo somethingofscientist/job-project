@@ -27,25 +27,25 @@ code {
   font-family: sans-serif;
   border-bottom: 0.3px solid rgb(158, 158, 158);
   box-shadow: 1px 1px 20px rgb(121, 121, 121);
-  background-color: rgb(255, 255, 255);
+  background:linear-gradient(#2997FF, rgba(44, 83, 255, 0.808)) ;
   font-size: 15px;
-  text-transform: uppercase;
 }
 
 a.nav-link {
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-weight: 400;
 }
 
-.navbar-brand {
+a.navbar-brand {
   font-weight: 700;
   transition: 0.36s;
+  color: white;
   letter-spacing: 2px;
 }
 
 .navbar-brand:hover {
   text-transform: lowercase;
-  letter-spacing: 10px;
+  letter-spacing: 5px;
 }
 
 
@@ -54,9 +54,9 @@ a.nav-link {
 .footer {
   width: 100%;
   text-align: center;
-  color: rgb(49, 49, 49);
+  background:linear-gradient(#2997FF, rgba(45, 83, 255, 0.808)) ;
   padding: 40px 10px;
-  background-color: rgb(194, 194, 194);
+  /* background-color: rgb(194, 194, 194); */
 }
 
 .footer-main-main {
@@ -68,12 +68,14 @@ a.nav-link {
 
 .footer-span {
   padding: 20px;
+  color: white;
 }
 
 .footer-nav-item a {
   text-decoration: none;
   padding: 0 10px;
-  color: rgb(43, 43, 43);
+  font-weight: bold;
+  color: rgb(255, 255, 255);
 }
 
 /* page not found  */
@@ -98,6 +100,10 @@ a.nav-link {
 }
 .found-title:hover{
   font-size: 200px;
+  color: white;
+}
+hr{
+  color: white;
 }
 .found-button{
   border-radius: 20px;
