@@ -54,7 +54,8 @@ const Header = () => {
                               </Link>
                               <div className="dropdown-menu" aria-labelledby="navbarDropdown">
                                  <li>
-                                    <Link to="/dashboard" className="dropdown-item" >Dashboard</Link>
+                                    <Link to={`/dashboard/${auth?.user?.role === 1 ? 'admin' : 'user'
+                                       }`} className="dropdown-item" >Dashboard</Link>
                                  </li>
                                  <li>
                                     <Link to="/login" className="dropdown-item" onClick={handleLogout}>Logout</Link>
