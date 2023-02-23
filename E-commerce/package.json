@@ -7,9 +7,9 @@
   "type": "module",
   "scripts": {
     "start": "nodemon server.js",
-    "server":"nodemon server.js",
+    "server": "nodemon server.js",
     "client": "npm start --prefix ./client",
-    "dev" : "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
@@ -22,6 +22,7 @@
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.9.2",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "slugify": "^1.6.5"
   }
 }
