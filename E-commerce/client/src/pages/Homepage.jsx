@@ -5,7 +5,7 @@ import { useAuth } from '../Context/Auth'
 
 import axios from "axios";
 import { Checkbox, Radio } from "antd";
-// import { Prices } from "../components/Prices";
+import { Prices } from "../components/Prices";
 
 const Homepage = () => {
 
@@ -129,8 +129,24 @@ const Homepage = () => {
               </Checkbox>
             ))}
           </div>
+
+          <h4 className="text-center mt-4">Filter By Price</h4>
+          <div className="d-flex flex-column">
+            <Radio.Group onChange={(e) => setRadio(e.target.value)}>
+              {Prices?.map((p) => (
+                <div key={p._id}>
+                  <Radio value={p.array}>{p.name}</Radio>
+                </div>
+              ))}
+            </Radio.Group>
+          </div>
+
         </div>
         <div className="col-md-9">
+        
+          {/* {JSON.stringify(checked, null, 4)} */}
+          {/* {JSON.stringify(radio, null, 4)} */}
+
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap">
             {/* <h1>Products</h1> */}
