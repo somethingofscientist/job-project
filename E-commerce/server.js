@@ -36,5 +36,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(port, () => {
-   console.log(`Server is running in ${process.env.DEV_MODE} at ${port}`.bgBlue)
+   console.log(`Server is running at ${port}`.bgBlue)
 })

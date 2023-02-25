@@ -1,23 +1,44 @@
-import express from 'express';
-import { 
-   createProductController, 
-   getProductController, 
-   getSingleProductController,
-   productPhotoController,
-   productDeleteController,
-   updateProductController,
- } from '../controllers/productController.js';
-import { isAdmin, requireSignIn } from '../middlewares/authMiddleware.js';
-import formidable from 'express-formidable';
+import express from "express";
+import {
+  createProductController,
+  deleteProductController,
+  getProductController,
+  getSingleProductController,
+  productPhotoController,
+  updateProductController,
+} from "../controllers/productController.js";
+import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
+import formidable from "express-formidable";
 
 const router = express.Router();
 
-// routes
-router.post('/create-product', requireSignIn, isAdmin, formidable(), createProductController)
-router.post('/update-product/:pid', requireSignIn, isAdmin, formidable(), updateProductController)
-router.get('/get-product', getProductController)
-router.get('/get-single-product/:slug', getSingleProductController)
-router.get('/product-photo/:pid', productPhotoController)
-router.delete('/product/:pid', productDeleteController)
+//routes
+router.post(
+  "/create-product",
+  requireSignIn,
+  isAdmin,
+  formidable(),
+  createProductController
+);
+//routes
+router.put(
+  "/update-product/:pid",
+  requireSignIn,
+  isAdmin,
+  formidable(),
+  updateProductController
+);
+
+//get products
+router.get("/get-product", getProductController);
+
+//single product
+router.get("/get-product/:slug", getSingleProductController);
+
+//get photo
+router.get("/product-photo/:pid", productPhotoController);
+
+//delete rproduct
+router.delete("/delete-product/:pid", deleteProductController);
 
 export default router;

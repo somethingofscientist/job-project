@@ -132,3 +132,9 @@ hr{
 .form-group{
   margin: 10px 0;
 }
+
+
+.product-link{
+  text-decoration: none!important;
+  color: black!important;
+}
