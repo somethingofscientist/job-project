@@ -1,6 +1,10 @@
 {
   "name": "e-commerce",
-  "proxy": "http://127.0.0.1:4000/",
+  "proxy": {
+    "/auth/google": {
+      "target": "localhost:4000"
+    }
+  },
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
