@@ -3,7 +3,7 @@ import Layout from "./../components/Layout/Layout";
 import { useCart } from "../Context/Cart";
 import { useAuth } from "../Context/Auth";
 import { useNavigate } from "react-router-dom";
-// import DropIn from "braintree-web-drop-in-react";
+import DropIn from "braintree-web-drop-in-react";
 import { AiFillWarning } from "react-icons/ai";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -74,6 +74,7 @@ const CartPage = () => {
          setCart([]);
          navigate("/dashboard/user/orders");
          toast.success("Payment Completed Successfully ");
+         
       } catch (error) {
          console.log(error);
          setLoading(false);
@@ -175,7 +176,7 @@ const CartPage = () => {
                            ""
                         ) : (
                            <>
-                              {/* <DropIn
+                              <DropIn
                                  options={{
                                     authorization: clientToken,
                                     paypal: {
@@ -183,7 +184,7 @@ const CartPage = () => {
                                     },
                                  }}
                                  onInstance={(instance) => setInstance(instance)}
-                              /> */}
+                              />
 
                               <button
                                  className="btn btn-primary"
