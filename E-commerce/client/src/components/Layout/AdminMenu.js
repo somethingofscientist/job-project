@@ -12,6 +12,7 @@ const AdminMenu = () => {
             <Link to="/dashboard/admin/create-product" className="list-group-item">Create Product</Link>
             <Link to="/dashboard/admin/products" className="list-group-item">Products</Link>
             <Link to="/dashboard/admin/users" className="list-group-item">Users</Link>
+            <Link to="/dashboard/admin/orders" className="list-group-item">Orders</Link>
          </ul>
       </div>
    )
