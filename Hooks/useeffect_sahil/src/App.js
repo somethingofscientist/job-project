@@ -1,24 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
 
 function App() {
+  const [count, setCount] = useState(0)
+  const [data, setData] = useState("Ram")
+
+  useEffect(() => {
+    console.log('component mounted');
+  }, [data])
+
+  const updateCount = () => {
+    setCount(count + 1)
+  }
+  const updateData = () => {
+    setData("Siya Ram")
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <h1>Hello {count} times</h1>
+      <button onClick={updateCount}>Click Me</button>
+      <button onClick={updateData}>Update Here</button>
+    </>
   );
 }
 
