@@ -38,12 +38,13 @@ function App() {
   }
 
   const handleInput = () => {
-    refElement.current.style.color="crimson"
-    refElement.current.value="your text change to bcs of useRef (value) crimson"
+    refElement.current.style.color = "crimson"
+    refElement.current.value = "your text change to bcs of useRef (value) crimson"
   }
 
   return (
     <>
+      {/* useRef --> helping in dom manipulation */}
       <h1 style={style}>Learning useRef() </h1>
       <input
         ref={refElement}
