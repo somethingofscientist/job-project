@@ -1,0 +1,26 @@
+.header{
+   display: flex;
+   font-size: 40px;
+   width: max-content;
+   margin: auto;
+   color: black;
+}
+a{
+   color: inherit;
+}
+.page, .arrow0, .arrow1{
+   justify-content: center;
+   align-items: center;
+   display: flex;
+   padding: 5px 20px;
+   border-radius: 10px;
+   border: 1px solid grey;
+   font-weight: bold;
+   transition: .2s ease-in;
+}
+.page:hover, .arrow0:hover, .arrow1:hover{
+   background-color: rgb(87, 87, 228);
+   color: white;
+   transform: scale(1.2);
+   border:1px solid transparent
+}
