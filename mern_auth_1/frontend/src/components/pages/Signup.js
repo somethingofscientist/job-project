@@ -1,18 +1,35 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../../App.css';
 import axios from 'axios';
 
 const Signup = () => {
 
+   const navigate = useNavigate();
    const [name, setName] = useState("");
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
 
    // form 
-   const handleSubmit = (e) => {
+   const handleSubmit = async (e) => {
       e.preventDefault();
-      console.log(name,email, password)
+      // console.log(name,email, password)
+      try {
+         const res = await axios.post(
+            "http://localhost:4000/auth/register",
+            { name, email, password })
+
+            if(res && res.data.success){
+               window.alert('success', res.data.message)
+               navigate('/');
+            }
+            else{
+               window.alert('user created', res.data.message)
+               console.log(res.data.message)
+            }
+      } catch (error) {
+         console.log(error.message)
+      }
    }
 
    return (
@@ -47,7 +64,7 @@ const Signup = () => {
                   placeholder='submit'
                   onClick={handleSubmit}
                >
-               Signup
+                  Signup
                </button>
             </div>
 
