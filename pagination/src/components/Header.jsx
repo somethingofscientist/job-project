@@ -12,7 +12,7 @@ const Header = () => {
                </Link>
             </div>
             <div className="page">
-               <Link to='/page1'> 1 </Link>
+               <Link to='/'> 1 </Link>
             </div>
             <div className="page">
                <Link to='/page2'> 2 </Link>
@@ -21,7 +21,7 @@ const Header = () => {
                <Link to='/page3'> 3 </Link>
             </div>
             <div className="arrow1">
-               <Link to="/page1">
+               <Link to="/">
                   ›
                </Link>
             </div>
