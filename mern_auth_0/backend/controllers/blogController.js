@@ -42,23 +42,46 @@ export const updateBlogController = async (req, res) => {
 }
 
 // updateBlogByLikeController blogs
-export const updateBlogByLikeController = async (req, res) => {
+export const LikeController = async (req, res) => {
    try {
       const blogs = await Blog.findById(req.param.id);
-      if (blogs.userId !== req.user.id) {
-         return res.status(500).send({ message: 'You cannot authorize to update this post' })
+      if (blogs.likes.includes(req.user.id)) {
+         blogs.likes = blogs.likes.filter((userId) => userId !== req.user.id)
+         await blogs.save();
+
+         return res.status(200).json({msg: "Unlike the post"});
       }
-
-      const updateBlog = await Blog
-      .findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
-      .populate("userId", '-password')
-
-      return res.status(200).send({ updateBlog })
+      else{
+         blogs.likes.push(req.user.id)
+         await blogs.save()
+         return res.status(200).json({msg: "Like the post"});
+      }
    }
    catch (error) {
       console.log(error.message)
       res.status(500).send({
          message: 'error in update likes blogs',
+         error: error.message
+      });
+   }
+}
+
+
+// updateBlogByLikeController blogs
+export const deleteBlogController = async (req, res) => {
+   try {
+      const blogs = await Blog.findById(req.param.id);
+      if (blogs.userId !== req.user.id) {
+         return res.status(402).send({ message: 'You cannot authorize to delete this post' })
+      }
+
+      await Blog.findByIdAndDelete(req.params.id)
+      return res.status(200).send({ message: 'deleted this blog' })
+   }
+   catch (error) {
+      console.log(error.message)
+      res.status(500).send({
+         message: 'error in delete blogs',
          error: error.message
       });
    }

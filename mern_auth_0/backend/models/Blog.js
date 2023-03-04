@@ -40,4 +40,4 @@ const blogSchema = new mongoose.Schema({
    
 }, { timestamps: true })
 
-export default mongoose.model('user', blogSchema);
+export default mongoose.model('Blogs', blogSchema);
