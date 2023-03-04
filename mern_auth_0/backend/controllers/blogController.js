@@ -1,4 +1,5 @@
 import Blog from '../models/Blog.js';
+import User from '../models/User.js';
 import { compare, hash } from '../helper/authHelper.js';
 import JWT from 'jsonwebtoken';
 
@@ -43,11 +44,13 @@ export const updateBlogController = async (req, res) => {
 }
 
 // updateBlogByLikeController blogs
+// -----> 0 -----> not working  
 export const LikeController = async (req, res) => {
    try {
-      const blogs = await Blog.findById(req.param.id);
+      const blogs = await Blog.findById(req.params.id);
+      console.log(User.state)
       if (blogs.likes.includes(req.user.id)) {
-         blogs.likes = blogs.likes.filter((userId) => userId !== req.user.id)
+         // blogs.likes = blogs.likes.filter((userId) => userId !== req.user.id)
          await blogs.save();
 
          return res.status(200).json({msg: "Unlike the post"});
@@ -72,9 +75,12 @@ export const LikeController = async (req, res) => {
 export const deleteBlogController = async (req, res) => {
    try {
       const blogs = await Blog.findById(req.param.id);
-      if (blogs.userId !== req.user.id) {
-         return res.status(402).send({ message: 'You cannot authorize to delete this post' })
+      if(!blogs){
+         return res.status(200).send({msg : "Already Deleted"})
       }
+      // if (blogs.userId !== req.user.id) {
+      //    return res.status(402).send({ message: 'You cannot authorize to delete this post' })
+      // }
 
       await Blog.findByIdAndDelete(req.params.id)
       return res.status(200).send({ message: 'deleted this blog' })
