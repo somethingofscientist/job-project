@@ -22,9 +22,10 @@ export const createBlogController = async (req, res) => {
 export const updateBlogController = async (req, res) => {
    try {
       const blogs = await Blog.findById(req.param.id);
-      if (blogs.userId !== req.user.id) {
-         return res.status(500).send({ message: 'You cannot authorize to update this post' })
-      }
+      // console.log(blogs , req.user.id)
+      // if (blogs.userId.toString() !== req.user.id) {
+      //    return res.status(500).send({ message: 'You cannot authorize to update this post' })
+      // }
 
       const updateBlog = await Blog
       .findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
