@@ -5,13 +5,15 @@ import {
    testController
 } from '../controllers/authController.js';
 
+
 import { requireSignIn } from '../middleware/authMiddleware.js';
 const router = express.Router();
 
 
+// user auth routes
 router.post('/register', registerController);
 router.post('/login', loginController);
-router.get('/test', requireSignIn ,testController);
+router.get('/test', requireSignIn, testController);
 
 
 export default router;

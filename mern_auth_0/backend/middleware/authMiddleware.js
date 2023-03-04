@@ -1,14 +1,12 @@
 import JWT from 'jsonwebtoken';
 
-
 export const requireSignIn = (req, res, next) => {
    try {
-
       const decode = JWT.verify(
          req.headers.authorization,
          process.env.secret
       )
-      if(!decode) return res.status(404).send({ status: "false", msg: "you are not sign in"}) 
+      if (!decode) return res.status(404).send({ status: "false", msg: "you are not sign in" })
       next();
 
    } catch (error) {
