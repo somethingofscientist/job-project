@@ -23,13 +23,18 @@ const Navbar = () => {
           <img
             className='header-img'
             onClick={() =>
-            setShowModal(prev => !prev)}
-            src={womanImg} alt="" />
-          <Link to='/create'>Create</Link>
-          <span>Logout</span>
+              setShowModal(prev => !prev)}
+            src={womanImg}
+            alt="" />
+          {showModal &&
+            <div className="header-modal">
+              <Link to='/create'>Create</Link>
+              <span>Logout</span>
+            </div>
+          }
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 
