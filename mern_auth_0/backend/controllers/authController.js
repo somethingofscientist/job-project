@@ -17,6 +17,10 @@ export const registerController = async (req, res) => {
       if (existingUser) {
          return res.status(409).send({msg : "Already Registered" })
       }
+      const existingUsername = await User.findOne({ username })
+      if (existingUsername) {
+         return res.status(409).send({msg : "Username Already Registered" })
+      }
 
       const hashedPassword = await hash(password)
       // save

@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import './Register.css';
 import { request } from '../../utils/fetchApi';
 import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { register } from '../../redux/authSlice';
 
 const Register = () => {
 
@@ -9,6 +11,7 @@ const Register = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -16,11 +19,13 @@ const Register = () => {
     if (username === '' || email === '' || password === '') {
       return
     }
-d
+
     try {
       const options = { 'Content-Type': 'application/json' }
       const data = await request('/auth/register', "POST", options, { username, email, password })
       console.log(data);
+      dispatch(register(data));
+      navigate('/login');
     }
     catch (error) {
       console.log(error.message);
