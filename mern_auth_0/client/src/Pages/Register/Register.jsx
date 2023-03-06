@@ -16,7 +16,7 @@ const Register = () => {
     if (username === '' || email === '' || password === '') {
       return
     }
-
+d
     try {
       const options = { 'Content-Type': 'application/json' }
       const data = await request('/auth/register', "POST", options, { username, email, password })
