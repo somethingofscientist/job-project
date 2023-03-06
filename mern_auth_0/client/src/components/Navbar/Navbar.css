@@ -1,0 +1,18 @@
+.header-container{
+   width: 100%;
+   background-color: black;
+   color: white;
+   height: 60px;
+   position: sticky;
+   top: 0;
+   left: 0;
+   border-bottom: 1px solid grey;
+}
+.header-wrapper{
+   height: 100%;
+   display: flex;
+   width: 1180px;
+   align-items: center;
+   justify-content: space-between;
+   margin:0 auto;
+}

@@ -47,19 +47,18 @@ export const updateBlogController = async (req, res) => {
 // -----> 0 -----> not working  
 export const LikeController = async (req, res) => {
    try {
-      const blogs = await Blog.findById(req.params.id);
-      console.log(User.state)
-      if (blogs.likes.includes(req.user.id)) {
-         // blogs.likes = blogs.likes.filter((userId) => userId !== req.user.id)
-         await blogs.save();
+      const blogs = await Blog.findById(req.param.id);
+      // if (blogs.likes.includes(req.user.id)) {
+      //    // blogs.likes = blogs.likes.filter((userId) => userId !== req.user.id)
+      //    await blogs.save();
 
-         return res.status(200).json({msg: "Unlike the post"});
-      }
-      else{
-         blogs.likes.push(req.user.id)
-         await blogs.save()
-         return res.status(200).json({msg: "Like the post"});
-      }
+      //    return res.status(200).json({msg: "Unlike the post"});
+      // }
+      // else{
+      //    blogs.likes.push(req.user.id)
+      //    await blogs.save()
+      //    return res.status(200).json({msg: "Like the post"});
+      // }
    }
    catch (error) {
       console.log(error.message)
