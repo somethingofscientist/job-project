@@ -1,6 +1,6 @@
 const blogModel = require('../models/blogModel.js');
 const userModel = require('../models/userModel.js');
-
+const mongoose = require('mongoose');
 
 // get all blogs
 exports.getAllBlogController = async (req, res) => {
@@ -34,11 +34,24 @@ exports.createBlogController = async (req, res) => {
    try {
       const { title, image, description, user } = req.body;
       if (!title || !image || !description || !user) {
-         return res.status({ success: false, msg: "All fields are mandatory" })
+         return res.status(400).send({ success: false, msg: "All fields are mandatory" })
       }
-      const existingUser = await userModel.findById(userModel)
+      const existingUser = await userModel.findById(user)
+      if (!existingUser) {
+         return res.status(400).send({
+            success: false,
+            msg: 'Unable to find user'
+         })
+      }
 
-      const newBlog = new blogModel({ title, description, image })
+      const newBlog = new blogModel({ title, description, image, user })
+      const session = await mongoose.startSession();
+      session.startTransaction();
+      await newBlog.save({ session })
+      existingUser.blogs.push(newBlog)
+      await existingUser.save({ session })
+      await session.commitTransaction()
+
       await newBlog.save();
 
       return res.status(201).send({
@@ -113,7 +126,9 @@ exports.updateBlogController = async (req, res) => {
 
 exports.deleteBlogController = async (req, res) => {
    try {
-      const blog = await blogModel.findByIdAndDelete(req.params.id)
+      const blog = await blogModel.findByIdAndDelete(req.params.id).populate("Users")
+      await blog.user.blogs.pull(blog)
+      await blog.user.save()
       return res.status(200).send({
          success: true,
          msg: 'Blog deleted',
@@ -129,3 +144,28 @@ exports.deleteBlogController = async (req, res) => {
       });
    }
 };
+
+exports.userGetBlogController = async (req, res) => {
+   try {
+      const userBlog = await userModel.findById(req.params.id).populate("blogs")
+      if(!userBlog){
+         return res.status(404).send({
+            success: false,
+            msg:'blog not found'
+         })
+      }
+      return res.status(200).send({
+         success: true,
+         msg:'blog  found',
+         userBlog
+      })
+   } 
+   catch (error) {
+      console.log(error.message);
+      return res.status(500).send({
+         msg: 'Error in last blogcontroller blog',
+         error: error.message,
+         success: false,
+      });
+   }
+}
