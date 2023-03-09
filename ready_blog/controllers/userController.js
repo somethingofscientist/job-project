@@ -1,20 +1,41 @@
 const userModel = require('../models/userModel.js');
+const bcrypt = require('bcrypt');
+
 
 // register 
 exports.registerController = async (req, res) => {
    try {
-      const { username, email, password } = req.body;
-      if (!username || !email || !password) {
+      // getting data from the user
+      const { name, email, password } = req.body;
+      // validation for the user
+      if (!name || !email || !password) {
          return res.status(400).send({
             success: false,
             msg: "Please fill all the fields"
          })
       }
+      // existing user
+      const existingUser = await userModel.findOne({ email })
+      if (existingUser) {
+         return res.status(401).send({ msg: 'Already register' })
+      }
+      const hashedpassword = await bcrypt.hash(password, 10);
+
+      // saving the user
+      const user = new userModel({ name, email, password: hashedpassword })
+      await user.save();
+
+      return res.status(201).send({
+         success: true,
+         msg: 'New user created',
+         user
+      })
    }
    catch (error) {
-      console.log(error);
+      console.log(error.message);
       return res.status(500).send({
          msg: 'Error in register',
+         error: error.message,
          success: false,
       });
    }
@@ -45,7 +66,12 @@ exports.loginController = () => {
 // get all users
 exports.getAllUsers = async (req, res) => {
    try {
-      
+      const users = await userModel.find({});
+      return res.status(200).send({
+         userCount : users.length,
+         success: true,
+         users
+      })
    }
    catch (error) {
       console.log(error);
