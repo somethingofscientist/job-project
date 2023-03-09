@@ -43,15 +43,32 @@ exports.registerController = async (req, res) => {
 
 
 // login 
-exports.loginController = () => {
+exports.loginController = async (req, res) => {
    try {
       const { email, password } = req.body;
       if (!email || !password) {
-         return res.status(400).send({
+         return res.status(401).send({
             success: false,
             msg: "Please fill all the fields"
          })
       }
+      const user = await userModel.findOne({ email })
+      if (!user) {
+         return res.status(200).send({ msg: 'email is not register' })
+      }
+      // isMatch
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+         return res.status(401).send({
+            success: false,
+            msg: "Wrong Email or Password"
+         })
+      }
+      return res.status(200).send({
+         success: true,
+         msg: "Login successful", 
+         user
+      })
    }
    catch (error) {
       console.log(error);
@@ -68,7 +85,7 @@ exports.getAllUsers = async (req, res) => {
    try {
       const users = await userModel.find({});
       return res.status(200).send({
-         userCount : users.length,
+         userCount: users.length,
          success: true,
          users
       })
