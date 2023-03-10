@@ -6,6 +6,7 @@ import BlogCard from '../components/BlogCard'
 
 export const Blog = () => {
   const [blogs, setBlogs] = useState([])
+  
   // get blogs 
   const getAllBlogs = async () => {
     try {
@@ -23,13 +24,16 @@ export const Blog = () => {
 
   return (
     <>
-      {blogs && blogs.map(blog => (
-        <BlogCard
-          title={blog.title}
-          description={blog.description}
-          image={blog.image}
-        />
-      ))}
+      {blogs
+        && blogs.map(blog => (
+          <BlogCard
+            title={blog.title}
+            description={blog.description}
+            image={blog.image}
+            // name={blog.user}
+            timing={blog.createdAt}
+          />
+        ))}
     </>
   )
 }

@@ -37,7 +37,7 @@ export const Header = () => {
                {isLogin && (
                   <Box display={'flex'} marginLeft={"auto"} marginRight={"auto"} >
                      <Tabs textColor="inherit" values={value} onChange={(e, val) => setValue(val)}>
-                        <Tab label="Blogs" LinkComponent={Link} to="/blog" />
+                        <Tab label="Blogs" LinkComponent={Link} to="/blogs" />
                         <Tab label="My Blogs" LinkComponent={Link} to="/my-blog" />
                      </Tabs>
                   </Box>)
