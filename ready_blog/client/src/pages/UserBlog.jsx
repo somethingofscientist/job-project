@@ -32,6 +32,7 @@ export const UserBlog = () => {
               title={blog.title}
               description={blog.description}
               image={blog.image}
+              name={blog.user}
               timing={blog.createdAt}
             />
           ))

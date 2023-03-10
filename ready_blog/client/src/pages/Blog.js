@@ -6,7 +6,7 @@ import BlogCard from '../components/BlogCard'
 
 export const Blog = () => {
   const [blogs, setBlogs] = useState([])
-  
+
   // get blogs 
   const getAllBlogs = async () => {
     try {
@@ -30,7 +30,7 @@ export const Blog = () => {
             title={blog.title}
             description={blog.description}
             image={blog.image}
-            // name={blog.user}
+            name={blog.user}
             timing={blog.createdAt}
           />
         ))}

@@ -13,7 +13,7 @@ import { red } from '@mui/material/colors';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
 
-export default function BlogCard({ title, description, image, timing }) {
+export default function BlogCard({ name, title, description, image, timing }) {
 
    return (
       <Card sx={{
@@ -27,13 +27,8 @@ export default function BlogCard({ title, description, image, timing }) {
          },
       }}>
          <CardHeader
-            avatar={
-               <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                  {/* {name} */}
-               </Avatar>
-            }
-            
-            title={title}
+            avatar={<Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">{name}</Avatar>}
+            name={name}
             time={timing}
          />
          <CardMedia
@@ -43,8 +38,11 @@ export default function BlogCard({ title, description, image, timing }) {
             alt="Paella dish"
          />
          <CardContent>
+            <Typography variant="h6" color="text.secondary">
+               Title : {title}
+            </Typography>
             <Typography variant="body2" color="text.secondary">
-               {description}
+               Description : {description}
             </Typography>
          </CardContent>
       </Card>
