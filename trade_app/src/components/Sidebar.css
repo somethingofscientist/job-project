@@ -1,0 +1,56 @@
+.container-sidebar {
+   width: 7%;
+   position: fixed;
+   height: 100vh;
+   color: white;
+   text-align: center;
+   background-color: rgb(20, 20, 43);
+   font-size: 25px;
+}
+
+.logo-sidebar {
+   padding: 40px 0;
+   transition: 0.3s;
+}
+
+.coin-sidebar {
+   transition: 0.3s;
+   font-size: 40px;
+   padding: 10px 0;
+}
+
+.logo-sidebar:hover,
+.coin-sidebar:hover {
+   background-color: rgb(33, 33, 56);
+   transform: scale(0.9);
+}
+
+.heading-in-one {
+   width: 100%;
+   background-color: rgb(33, 33, 49);
+}
+
+.heading {
+   /* width: 97%; */
+   /* margin-left: 7%; */
+   padding: 20px 0;
+   font-family: Courier, monospace;
+   text-transform: uppercase;
+   font-size: 50px;
+   color: whitesmoke;
+   /* background-color: red; */
+   text-align: center;
+}
+
+
+.main-container {
+   display: flex;
+   width: 100%;
+}
+
+.main-container1 {
+   display: flex;
+   z-index: 44;
+   width: 100%;
+   /* background-color: royalblue; */
+}
