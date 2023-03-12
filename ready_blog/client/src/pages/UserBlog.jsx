@@ -10,9 +10,9 @@ export const UserBlog = () => {
   const getUserBlogs = async () => {
     try {
       const id = localStorage.getItem('userId')
-      const { data } = await axios.get(`/api/v1/blog/get-blog/${id}/`)
+      const { data } = await axios.get(`/api/v1/blog/get-blog/${id}`)
       if (data?.success) {
-        setBlogs(data?.userBlog)
+        setBlogs(data?.userBlog.blogs)
       }
     } catch (error) {
       console.log(error)
@@ -22,18 +22,21 @@ export const UserBlog = () => {
   useEffect(() => {
     getUserBlogs();
   }, [])
+  console.log(blogs)
 
   return (
     <div>
-      {blogs.lenght > 0 ?
+      {blogs.length > 0 ?
         (
           blogs.map((blog) => (
             <BlogCard
+              id={blog._id}
+              isUser={true}
               title={blog.title}
               description={blog.description}
               image={blog.image}
-              name={blog.user}
-              timing={blog.createdAt}
+              // username={blog.users.name}
+              time={blog.createdAt}
             />
           ))
         )

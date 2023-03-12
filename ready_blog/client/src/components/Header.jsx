@@ -8,7 +8,8 @@ import { authActions } from '../redux/store';
 
 export const Header = () => {
    // global state
-   const isLogin = useSelector(state => state.isLogin)
+   let isLogin = useSelector((state) => state.isLogin);
+   isLogin = isLogin || localStorage.getItem("userId");
    const dispatch = useDispatch();
    const navigate = useNavigate();
 
