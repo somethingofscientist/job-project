@@ -23,6 +23,7 @@ export const Header = () => {
          dispatch(authActions.logout())
          alert("Logout successfully")
          navigate('/login')
+         localStorage.clear();
       } catch (error) {
          console.log(error)
       }
