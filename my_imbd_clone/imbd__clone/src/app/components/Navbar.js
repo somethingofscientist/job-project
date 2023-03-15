@@ -4,7 +4,7 @@ import NavbarItems from './NavbarItems'
 const Navbar = () => {
    return (
       <>
-         <div className='flex justify-center dark:bg-gray-600 bg-amber-100 lg:text-lg p-4'>
+         <div className='flex justify-center cursor-pointer dark:bg-gray-600 bg-amber-100 lg:text-lg p-4'>
             <NavbarItems title={'Trending'} param="fetchTrending" />
             <NavbarItems title={'Top Rated'} param="fetchTopRated" />
          </div>
