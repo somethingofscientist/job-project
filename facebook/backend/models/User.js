@@ -7,20 +7,20 @@ const userSchema = new mongoose.Schema({
       unique: true
    },
    email: {
-      type: Stirng,
+      type: String,
       required: true,
       unique: true
    },
    password: {
-      type: Stirng,
+      type: String,
       required: true
    },
    profilePic: {
-      type: Stirng,
+      type: String,
       default: ''
    },
    coverPic: {
-      type: Stirng,
+      type: String,
       default: ''
    },
    followers: {
