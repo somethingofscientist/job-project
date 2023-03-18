@@ -11,7 +11,7 @@
  .products__single {
    height: 250px;
    width: 250px;
-   margin: 10px;
+   margin: 5px;
    list-style: none;
    padding: 20px;
    background-color: rgb(220, 220, 220);
@@ -29,7 +29,7 @@
  
  .pagination {
    padding: 10px;
-   margin: 15px 0;
+   /* margin: 15px 0; */
    display: flex;
    /* color: rgb(211, 211, 211); */
    justify-content: center;

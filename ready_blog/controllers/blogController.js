@@ -38,7 +38,7 @@ exports.createBlogController = async (req, res) => {
       }
       const existingUser = await userModel.findById(user)
       if (!existingUser) {
-         return res.status(400).send({
+         return res.status(404).send({
             success: false,
             msg: 'Unable to find user'
          })
@@ -126,7 +126,7 @@ exports.updateBlogController = async (req, res) => {
 
 exports.deleteBlogController = async (req, res) => {
    try {
-      const blog = await blogModel.findByIdAndDelete(req.params.id).populate("Users")
+      const blog = await blogModel.findByIdAndDelete(req.params.id).populate("user")
       await blog.user.blogs.pull(blog)
       await blog.user.save()
       return res.status(200).send({
@@ -147,23 +147,23 @@ exports.deleteBlogController = async (req, res) => {
 
 exports.userGetBlogController = async (req, res) => {
    try {
-      const userBlog = await userModel.findById(req.params.id)
-      if(!userBlog){
+      const userBlog = await userModel.findById(req.params.id).populate("blogs")
+      if (!userBlog) {
          return res.status(404).send({
             success: false,
-            msg:'blog not found'
+            msg: 'blog not found'
          })
       }
       return res.status(200).send({
          success: true,
-         msg:'blog  found',
+         msg: 'blog found',
          userBlog
       })
-   } 
+   }
    catch (error) {
       console.log(error.message);
       return res.status(500).send({
-         msg: 'Error in last blogcontroller blog',
+         msg: 'Error in last user blogcontroller',
          error: error.message,
          success: false,
       });
