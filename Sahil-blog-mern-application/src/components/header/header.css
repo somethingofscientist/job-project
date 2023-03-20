@@ -1,0 +1,44 @@
+.header {
+  margin-top: 60px;
+  /* background-color: black; */
+}
+
+.headerTitles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Lora", serif;
+  color: #858585;
+}
+
+.headerTitleSm {
+  position: absolute;
+  /* top: 18%; */
+  font-size: 80px;
+
+  background-image: linear-gradient(to left, tomato, pink);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.headerTitleLg {
+  position: absolute;
+  top: 20%;
+  font-size: 150px;
+  color: white;
+
+  background-image: linear-gradient(to right, tomato, pink);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.headerImg {
+  width: 100%;
+  height: 450px;
+  margin-top: 80px;
+  object-fit: cover;
+}
