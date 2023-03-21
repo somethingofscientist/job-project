@@ -5,30 +5,39 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(
-      rgba(255, 255, 255, 0.5),
-      rgba(255, 255, 255, 0.5)
-    ),
+      rgba(26, 26, 26, 0.5),
+      rgba(202, 202, 202, 0.5)),
     url("https://images.pexels.com/photos/768473/pexels-photo-768473.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
   background-size: cover;
 }
 
 .loginTitle {
   font-size: 50px;
+  letter-spacing: 20px;
+  padding-bottom: 40px;
 }
 
 .loginForm {
+  border: 1px solid rgb(219, 219, 219);
   margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.541);
+  padding: 50px;
+  border-radius: 10px;
+  border:none;
   display: flex;
+  color: white;
   flex-direction: column;
 }
 
-.loginForm > label {
+.loginForm>label {
   margin: 10px 0;
 }
 
 .loginInput {
-  padding: 10px;
-  background-color: white;
+  padding: 15px;
+  font-size: 16px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.842);
   border: none;
   border-radius: 10px;
 }
@@ -40,7 +49,7 @@
 .loginButton {
   margin-top: 20px;
   cursor: pointer;
-  background-color: lightcoral;
+  background-color: tomato;
   color: white;
   padding: 10px;
   border: none;

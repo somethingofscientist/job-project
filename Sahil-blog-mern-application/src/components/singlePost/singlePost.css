@@ -28,7 +28,12 @@
 
 .singlePostIcon {
   margin-left: 10px;
+  font-size: 30px;
   cursor: pointer;
+  transition: 0.3s ease;
+}
+.singlePostIcon:hover {
+  font-size: 40px;
 }
 
 .singlePostIcon:first-child {
@@ -39,6 +44,8 @@
 }
 
 .singlePostInfo {
+  /* border: 1px solid grey; */
+  padding: 0 40px ;
   margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
@@ -54,7 +61,10 @@
 .singlePostDesc {
   color: #666;
   font-size: 18px;
+  padding: 0 40px;
   line-height: 25px;
+  /* background-color: red; */
+  text-align: justify;
 }
 
 .singlePostDesc::first-letter {

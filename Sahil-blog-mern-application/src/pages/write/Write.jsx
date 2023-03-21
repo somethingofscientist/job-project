@@ -5,8 +5,8 @@ export default function Write() {
     <div className="write">
       <img
         className="writeImg"
-        src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-        alt=""
+        src="https://media.istockphoto.com/id/1084780510/photo/young-beautiful-and-confident-asian-korean-student-girl-researching-and-studying-at-home.jpg?s=170667a&w=0&k=20&c=smoA3a8dMdQWLSMzHmAVOO9lbVJgbY4SQ-6IL-Qxqqc="
+        alt="put the photo here for the blog"
       />
       <form className="writeForm">
         <div className="writeFormGroup">

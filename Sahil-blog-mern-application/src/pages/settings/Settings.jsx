@@ -13,7 +13,7 @@ export default function Settings() {
           <label>Profile Picture</label>
           <div className="settingsPP">
             <img
-              src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+              src="https://www.researchgate.net/profile/Henrik-Saetra/publication/366943371/figure/fig2/AS:11431281112633472@1673502843018/AI-generated-profile-picture-made-with-the-app-Lensaai_Q640.jpg"
               alt=""
             />
             <label htmlFor="fileInput">

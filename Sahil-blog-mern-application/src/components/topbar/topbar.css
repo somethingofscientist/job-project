@@ -1,9 +1,9 @@
 .top {
   width: 100%;
   height: 50px;
-  background-color: rgba(231, 231, 231, 0.329);
+  background-color: rgba(0, 0, 0, 0.89);
   position: sticky;
-  /* position:fixed; */
+  color: white;
   top: 0;
   display: flex;
   align-items: center;
@@ -22,7 +22,7 @@
 .topIcon {
   font-size: 20px;
   margin-right: 10px;
-  color: #444;
+  /* color: #444; */
   cursor: pointer;
 }
 
@@ -43,10 +43,12 @@
   font-size: 18px;
   font-weight: 300;
   cursor: pointer;
+  transition: 0.3s ease;
 }
 
-.topListItem:hover{
-    color: gray;
+.topListItem:hover {
+  transform: scale(1.1);
+  color: lightcoral;
 }
 
 .topImg {
@@ -56,10 +58,20 @@
   object-fit: cover;
   margin-right: 15px;
   cursor: pointer;
+  transition: 0.3s ease;
+}
+.topImg:hover {
+  transform: rotate(361deg) scale(1.5);
+  color: rgb(197, 37, 37);
 }
 
 .topSearchIcon {
   font-size: 18px;
-  color: #666;
+  /* color: #666; */
   cursor: pointer;
+  transition: .3s ease;
+}
+.topSearchIcon:hover {
+  transform: scale(1.1);
+  color: rgb(197, 37, 37);
 }
