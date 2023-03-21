@@ -5,7 +5,7 @@ export default function Header() {
     
     <div className="header">
       <div className="headerTitles">
-        <span className="headerTitleSm">MERN</span>
+        <span className="headerTitleSm">HOMEPAGE</span>
         <span className="headerTitleLg">BLOG</span>
       </div>
       <img

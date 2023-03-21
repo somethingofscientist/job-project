@@ -8,6 +8,7 @@ import Write from "./pages/write/Write";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { About } from "./pages/about/About";
 import { Contact } from "./pages/contact/Contact.jsx";
+import { Footer } from "./components/footer/Footer";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         </Route>
       </Switch>
 
+      <Footer />
     </Router>
   );
 }
