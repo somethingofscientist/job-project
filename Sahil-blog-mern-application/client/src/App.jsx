@@ -12,7 +12,7 @@ import { Footer } from "./components/footer/Footer";
 
 
 function App() {
-  const currentUser = 0;
+  const currentUser = 1;
   return (
     <Router>
       <Topbar />

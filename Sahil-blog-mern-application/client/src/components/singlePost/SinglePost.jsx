@@ -1,7 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./singlePost.css";
 
 export default function SinglePost() {
+  const location = useLocation();
+  const path = location.pathname.split("/")[2]
+
   return (
     <div className="singlePost">
       <div className="singlePostWrapper">
