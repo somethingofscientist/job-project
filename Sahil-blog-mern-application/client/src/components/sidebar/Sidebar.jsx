@@ -1,17 +1,29 @@
 import { Link } from "react-router-dom";
 import "./sidebar.css";
 // import sahil_img from '../../images/sahil.jpeg';
+import s from '../../images/s.jpg';
+import axios from "axios";
+import { useState, useEffect } from "react";
 
 export default function Sidebar() {
+  const [cats, setCats] = useState([]);
+
+  useEffect(() => {
+    const getCats = async () => {
+      const res = await axios.get("/categories")
+      setCats(res.data);
+    }
+    getCats()
+  }, [])
+
+
   return (
     <div className="sidebar">
       <div className="sidebarItem">
         <span className="sidebarTitle">ABOUT ME</span>
         <img
-          src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8a29yZWFuJTIwZ2lybHxlbnwwfHwwfHw%3D&w=1000&q=80"
-          alt=""
-          // src={sahil_img}
-          // alt="sahil-img"
+          src={s}
+          alt="sahil"
         />
         <p>
           Laboris sunt aute cupidatat velit magna velit ullamco dolore mollit
@@ -21,11 +33,14 @@ export default function Sidebar() {
       <div className="sidebarItem">
         <span className="sidebarTitle">CATEGORIES</span>
         <ul className="sidebarList">
-          <li className="sidebarListItem">
-            <Link className="link" to="/posts?cat=Life">
-              Life
-            </Link>
-          </li>
+          {
+            cats.map((c) => (
+              <link to={`/?cat=${c.name}`}>
+                <li className="sidebarListItem"> {c.name} </li>
+              </link>
+            ))
+          }
+
           <li className="sidebarListItem">
             <Link className="link" to="/posts?cat=Music">
               Music
