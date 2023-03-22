@@ -35,13 +35,14 @@ export default function Sidebar() {
         <ul className="sidebarList">
           {
             cats.map((c) => (
-              <link to={`/?cat=${c.name}`}>
+            // may be use proxy here
+              <Link to={`/?cat=${c.name}`} className="link" >
                 <li className="sidebarListItem"> {c.name} </li>
-              </link>
+              </Link>
             ))
           }
 
-          <li className="sidebarListItem">
+          {/* <li className="sidebarListItem">
             <Link className="link" to="/posts?cat=Music">
               Music
             </Link>
@@ -65,7 +66,8 @@ export default function Sidebar() {
             <Link className="link" to="/posts?cat=Cinema">
               Cinema
             </Link>
-          </li>
+          </li> */}
+          
         </ul>
       </div>
       <div className="sidebarItem">

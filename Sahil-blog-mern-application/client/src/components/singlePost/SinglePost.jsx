@@ -11,11 +11,11 @@ export default function SinglePost() {
 
   useEffect(() => {
     const getPost = async () => {
-      const res = await axios.get(proxy + "/posts/" + path)
+      const res = await axios.get(proxy + "/posts/" + path);
       setPost(res.data)
     }
     getPost()
-  }, [path])
+  }, [path]);
 
 
   return (

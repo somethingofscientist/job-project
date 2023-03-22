@@ -12,7 +12,7 @@ import { Footer } from "./components/footer/Footer";
 
 
 function App() {
-  const currentUser = 1;
+  const currentUser = false;
   return (
     <Router>
       <Topbar />
@@ -32,10 +32,10 @@ function App() {
           {currentUser ? <Homepage /> : <Login />}
         </Route>
         <Route path="/write">
-          {currentUser ? <Write /> : <Login />}
+          {currentUser ? <Write /> : <Register />}
         </Route>
         <Route path="/settings">
-          {currentUser ? <Settings /> : <Login />}
+          {currentUser ? <Settings /> : <Register />}
         </Route>
       </Switch>
 
