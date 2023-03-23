@@ -46,6 +46,6 @@ app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
 
-app.listen(process.env.port, () => {
+app.listen(process.env.port || 5001, () => {
   console.log(`Backend is running on ${process.env.port}`);
 });
