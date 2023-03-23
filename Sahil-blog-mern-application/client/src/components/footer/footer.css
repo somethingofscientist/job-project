@@ -14,10 +14,8 @@
 }
 .footer-connect-with-us{
    display: flex;
-   /* background-color: red; */
    flex-direction: column;
    text-align: center;
-   /* padding: 20px 0; */
    justify-content: center;
    align-items: center;
    width: 20%;
