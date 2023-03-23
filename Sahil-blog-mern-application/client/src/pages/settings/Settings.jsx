@@ -3,7 +3,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import { useContext, useState } from "react";
 import { Context } from "../../context/Context";
 import axios from "axios";
-const proxy = "http://localhost:4000/api"
+const proxy = "https://first-mern-backend-63cs.onrender.com/api"
 
 export default function Settings() {
   const [file, setFile] = useState(null);
@@ -13,7 +13,7 @@ export default function Settings() {
   const [success, setSuccess] = useState(false);
 
   const { user, dispatch } = useContext(Context);
-  const PF = "http://localhost:4000/images/"
+  const PF = "https://first-mern-backend-63cs.onrender.com/images/"
 
   const handleSubmit = async (e) => {
     e.preventDefault();

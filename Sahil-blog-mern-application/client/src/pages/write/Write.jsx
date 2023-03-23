@@ -2,7 +2,7 @@ import "./write.css";
 import { useContext, useState } from "react";
 import axios from "axios";
 import { Context } from "../../context/Context";
-const PF = "http://localhost:4000/api"
+const PF = "https://first-mern-backend-63cs.onrender.com/api"
 
 export default function Write() {
   const [title, setTitle] = useState("");

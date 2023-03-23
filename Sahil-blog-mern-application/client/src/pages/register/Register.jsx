@@ -2,7 +2,7 @@ import "./register.css"
 import { Link } from "react-router-dom"
 import { useState } from "react";
 import axios from "axios";
-const proxy = "http://localhost:4000/api"
+const proxy = "https://first-mern-backend-63cs.onrender.com/api"
 
 export default function Register() {
   const [username, setUsername] = useState("")

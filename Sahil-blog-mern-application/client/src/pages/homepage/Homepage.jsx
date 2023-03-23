@@ -5,7 +5,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import "./homepage.css";
 import axios from 'axios';
 import { useLocation } from "react-router";
-const proxy = "http://localhost:4000/api"
+const proxy = "https://first-mern-backend-63cs.onrender.com/api"
 
 
 export default function Home() {

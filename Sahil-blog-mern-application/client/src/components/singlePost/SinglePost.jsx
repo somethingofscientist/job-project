@@ -4,13 +4,13 @@ import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import "./singlePost.css";
-const proxy = "http://localhost:4000/api"
+const proxy = "https://first-mern-backend-63cs.onrender.com/api"
 
 export default function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2]
   const [post, setPost] = useState({});
-  const PF = "http://localhost:4000/images/"
+  const PF = "https://first-mern-backend-63cs.onrender.com/images/"
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");

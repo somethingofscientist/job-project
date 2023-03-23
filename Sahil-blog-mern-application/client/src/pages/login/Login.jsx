@@ -3,7 +3,7 @@ import { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import "./login.css";
-const proxy = "http://localhost:4000/api"
+const proxy = "https://first-mern-backend-63cs.onrender.com/api"
 
 export default function Login() {
   const userRef = useRef();
