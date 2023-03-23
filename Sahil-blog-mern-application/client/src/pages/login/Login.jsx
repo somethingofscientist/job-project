@@ -8,17 +8,18 @@ const proxy = "http://localhost:4000/api"
 export default function Login() {
   const userRef = useRef();
   const passwordRef = useRef();
-  const { user, dispatch, isFetching } = useContext(Context);
+  const {data, user, dispatch, isFetching } = useContext(Context);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     dispatch({ type: "LOGIN_START" });
+    
     try {
       const res = await axios.post(proxy + "/auth/login", {
         username: userRef.current.value,
         password: passwordRef.current.value,
       });
-      console.log(res);
+
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE" });

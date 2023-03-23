@@ -9,10 +9,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { About } from "./pages/about/About";
 import { Contact } from "./pages/contact/Contact.jsx";
 import { Footer } from "./components/footer/Footer";
+import { useContext } from "react";
+import { Context } from "./context/Context";
 
 
 function App() {
-  const currentUser = false;
+  const { user } = useContext(Context);
   return (
     <Router>
       <Topbar />
@@ -26,16 +28,16 @@ function App() {
 
 
         <Route path="/register">
-          {currentUser ? <Homepage /> : <Register />}
+          {user ? <Homepage /> : <Register />}
         </Route>
         <Route path="/login">
-          {currentUser ? <Homepage /> : <Login />}
+          {user ? <Homepage /> : <Login />}
         </Route>
         <Route path="/write">
-          {currentUser ? <Write /> : <Register />}
+          {user ? <Write /> : <Register />}
         </Route>
         <Route path="/settings">
-          {currentUser ? <Settings /> : <Register />}
+          {user ? <Settings /> : <Register />}
         </Route>
       </Switch>
 
